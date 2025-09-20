@@ -2,6 +2,11 @@ import { env } from 'cloudflare:workers';
 
 import { createMcpAgent } from '@cloudflare/playwright-mcp';
 
+export interface Env {
+  BEARER_TOKEN?: string; // optional
+  BROWSER: string;       // required
+}
+
 export const PlaywrightMCP = createMcpAgent(env.BROWSER);
 
 export default {
